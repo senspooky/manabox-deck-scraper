@@ -1,1 +1,5 @@
 package manaboxdeckscraper
+
+func main() {
+
+}
