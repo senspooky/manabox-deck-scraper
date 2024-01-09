@@ -2,12 +2,11 @@ package db
 
 import (
 	"github.com/google/uuid"
-	"gorm.io/gorm"
 )
 
 // Represents a deck in the database
 type Deck struct {
-	gorm.Model
+	// gorm.Model
 
 	Name   string
 	Format Format
@@ -20,7 +19,7 @@ type Deck struct {
 
 // Represents an external reference to a deck
 type ExternalRef struct {
-	gorm.Model
+	// gorm.Model
 
 	// ! DeckID and Source are expected to be unique for a given Deck
 	DeckID string
@@ -29,7 +28,7 @@ type ExternalRef struct {
 
 // Represents a card in a deck the database
 type Card struct {
-	gorm.Model
+	// gorm.Model
 
 	// ! DeckID, BoardCategory, and CardData's ID are expected to be unique for a given Card in a deck
 	DeckID        uint
@@ -41,7 +40,7 @@ type Card struct {
 
 // Represents a card
 type CardData struct {
-	gorm.Model
+	// gorm.Model
 
 	// ! ID is expected to be unique for a given Card in a deck
 	ID   uuid.UUID // Scryfall ID
