@@ -63,4 +63,59 @@ type Card struct {
 	Images               []Images    `json:"images"`
 }
 
-// Error
+// Format "enum"
+type Format uint
+
+const (
+	NoFormat Format = iota
+	Standard
+	Modern
+	Legacy
+	Commander
+	Brawl
+	Pioneer
+	Vintage
+	Pauper
+	DuelCommander
+	Frontier
+	Oathbreaker
+	Historic
+	Penny
+	Premodern
+	OldSchool
+	Conquest
+	TinyLeaders
+	PauperCommander
+	Explorer
+	HistoricBrawl
+	Gladiator
+	CanadianHighlander
+)
+
+func (f Format) String() string {
+	return [...]string{
+		"No Format",
+		"Standard",
+		"Modern",
+		"Legacy",
+		"Commander",
+		"Brawl",
+		"Pioneer",
+		"Vintage",
+		"Pauper",
+		"Duel Commander",
+		"Frontier",
+		"Oathbreaker",
+		"Historic",
+		"Penny Dreadful",
+		"Premodern",
+		"Old School",
+		"Conquest",
+		"Tiny Leaders",
+		"Pauper Commander",
+		"Explorer",
+		"Historic Brawl",
+		"Gladiator",
+		"Canadian Highlander",
+	}[f]
+}

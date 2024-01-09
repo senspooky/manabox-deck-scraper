@@ -43,6 +43,7 @@ func (m *manabox) GetDecklist(id string) (*Deck, error) {
 		SetSuccessResult(deck).
 		Get("/decks/{id}")
 	if err != nil {
+		// nil better than zero; zero is technically valid.
 		return nil, err
 	}
 	return deck, err
