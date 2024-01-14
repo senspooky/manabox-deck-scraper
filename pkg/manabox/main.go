@@ -13,12 +13,14 @@ type Config struct {
 }
 
 type manabox struct {
-	c *req.Client
+	h *req.Client
+	c *Config
 }
 
 func New(c Config) Manabox {
 	m := &manabox{}
-	m.c = req.
+	m.c = &c
+	m.h = req.
 		SetBaseURL(c.BaseURL).
 		//EnableDumpAll().
 		OnAfterResponse(func(client *req.Client, resp *req.Response) error {
@@ -38,7 +40,7 @@ func New(c Config) Manabox {
 
 func (m *manabox) GetDecklist(id string) (*Deck, error) {
 	deck := &Deck{}
-	_, err := m.c.R().
+	_, err := m.h.R().
 		SetPathParam("id", id).
 		SetSuccessResult(deck).
 		Get("/decks/{id}")
